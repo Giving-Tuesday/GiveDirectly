@@ -7,7 +7,7 @@ import numpy as np
 import math
 import pyproj
 
-from urllib import urlretrieve
+from six.moves.urllib.request import urlretrieve
 from shapely.geometry import Polygon, Point
 from shapely.ops import transform
 from functools import partial

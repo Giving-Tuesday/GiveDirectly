@@ -1,14 +1,16 @@
 __author__ = 'lluiscanet'
 
-import utils
-import pickle
-import numpy as np
-import cv2
 import logging
+import pickle
 
+import cv2
+import numpy as np
 from pandas import DataFrame
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
-from sklearn.cross_validation import cross_val_score
+from sklearn.model_selection import cross_val_score
+
+from . import utils
+
 
 type_dict = {'thatched': 0, 'iron': 1}
 
@@ -43,7 +45,7 @@ class ImageAnalysisModel:
                 tot_labels.extend(labels)
                 tot_features.extend(features)
             else:
-                print 'Image not found ' + row[1].image
+                print('Image not found ' + row[1].image)
         return tot_labels, tot_features
 
     def bulk_apply(self, df, image_folder, col_name):

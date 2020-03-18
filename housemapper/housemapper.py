@@ -1,16 +1,18 @@
 # -*- coding: utf-8 -*-
 
-import pandas as pd
 import json
 import os
-
+from configparser import SafeConfigParser
 from time import sleep
-from models import *
-from utils import *
-from ConfigParser import SafeConfigParser
+
+import pandas as pd
+
+from .models import *
+from .utils import *
+
 
 # Initialize configuration
-config_file = os.getenv('HM_CONFIG', '../config/config.ini')
+config_file = os.getenv('HM_CONFIG', os.path.join(os.path.dirname(__file__), '../config/config.ini'))
 config = SafeConfigParser()
 config.read(config_file)
 
