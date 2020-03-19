@@ -1,5 +1,6 @@
 __author__ = 'lluiscanet'
 
+import os.path as op
 import housemapper as hm
 
 # df = hm.download_division_images('BORO')
@@ -7,7 +8,7 @@ import housemapper as hm
 # print(len(df))
 
 df = hm.download_division_images('KAREMO')
-df.to_csv('../data/karemo_images.csv')
+df.to_csv(op.join(config.data_dir, 'karemo_images.csv'))
 print(len(df))
 
 # df = hm.download_division_images('URANGA')
